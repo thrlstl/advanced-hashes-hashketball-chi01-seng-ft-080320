@@ -202,7 +202,7 @@ def player_stats (players_name)
     value.each do |inner_key, inner_value|
       if(inner_key == :players)
         inner_value.each do |player|
-          if(player[:player_name] == name)
+          if(player[:player_name] == players_name)
             result = player
           end 
         end 
