@@ -170,12 +170,22 @@ def team_colors (team_name)
   result
 end
 
-def team_names ()
-   result = []
-  game_hash.each do |key, value|
-    result.push(value[:team_name])
-  end 
-  result
+def team_names (team_name)
+   jerseys = []
+    game_hash.each do |home_away_key, outer_value|
+      target_team = false
+      outer_value.each do |team_info, value|
+        if(value == team)
+          target_team = true
+        end 
+          if(team_info == :players && target_team == true)
+            value.each do |player|
+              jerseys.push(player[:number])
+            end 
+          end
+      end 
+    end 
+  jerseys
 end
 
 def player_numbers(team_name)
