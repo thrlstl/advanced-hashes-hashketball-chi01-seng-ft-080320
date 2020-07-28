@@ -173,19 +173,19 @@ end
 def team_names (team_name)
    result = []
     game_hash.each do |location, outer_value|
-      team_tier = false
+      result_team = false
       outer_value.each do |team_tier, value|
         if(value == team)
-          target_team = true
+          result_team = true
         end 
-          if(team_info == :players && target_team == true)
+          if(team_tier == :players && result_team == true)
             value.each do |player|
-              jerseys.push(player[:number])
+              result.push(player[:number])
             end 
           end
       end 
     end 
-  jerseys
+  result
 end
 
 def player_numbers(team_name)
