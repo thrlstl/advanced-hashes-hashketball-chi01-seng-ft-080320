@@ -178,7 +178,7 @@ def team_names
   result
 end
 
-def player_numbers(team_name)
+def player_numbers (team_name)
     result = []
     game_hash.each do |location, outer_value|
       result_team = false
