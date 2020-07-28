@@ -130,7 +130,7 @@ end
 
 def num_points_scored (name)
     result = ''
-    game_hash.each do |location_tier, outer_value|
+    game_hash.each do |location, outer_value|
       outer_value.each do |team_tier, value|
         if(team_tier == :players)
           value.each do |player|
@@ -144,7 +144,20 @@ def num_points_scored (name)
   result
 end
 
-def shoe_size
+def shoe_size (name)
+  result = ''
+    game_hash.each do |location, outer_value|
+      outer_value.each do |team_info, value|
+        if(team_info == :players)
+          value.each do |player|
+            if(player[:player_name] == name)
+              target = player[:shoe]
+            end
+          end 
+        end
+      end 
+    end 
+  target
 end
 
 def team_colors
