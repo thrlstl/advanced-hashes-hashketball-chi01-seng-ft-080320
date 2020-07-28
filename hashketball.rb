@@ -171,6 +171,11 @@ def team_colors (team_name)
 end
 
 def team_names
+   target = []
+  game_hash.each do |key, value|
+    target.push(value[:team_name])
+  end 
+  target
 end
 
 def player_numbers
