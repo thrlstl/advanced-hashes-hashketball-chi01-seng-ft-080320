@@ -127,3 +127,106 @@ def game_hash
 end
 
 # Write code here
+
+def num_points_scored (name)
+    result = ''
+    game_hash.each do |location, outer_value|
+      outer_value.each do |team, value|
+        if(team == :players)
+          value.each do |player|
+            if(player[:player_name] == name)
+              result = player[:points]
+            end
+          end 
+        end
+      end 
+    end 
+  result
+end
+
+def shoe_size (name)
+  result = ''
+    game_hash.each do |location, outer_value|
+      outer_value.each do |team, value|
+        if(team == :players)
+          value.each do |player|
+            if(player[:player_name] == name)
+              result = player[:shoe]
+            end
+          end 
+        end
+      end 
+    end 
+  result
+end
+
+def team_colors (team_name)
+  result = nil
+  game_hash.each do |key, value|
+    if(value[:team_name] == team_name)
+      result = value[:colors]
+    end 
+  end 
+  result
+end
+
+def team_names
+  result =[]
+  game_hash.each do |key, value|
+    result.push(value[:team_name])
+  end 
+  result
+end
+
+def player_numbers (team_name)
+    result = []
+    game_hash.each do |location, outer_value|
+      result_team = false
+      outer_value.each do |team_tier, value|
+        if(value == team_name)
+          result_team = true
+        end 
+          if(team_tier == :players && result_team == true)
+            value.each do |player|
+              result.push(player[:number])
+            end 
+          end
+      end 
+    end 
+  result
+end
+
+def player_stats (players_name)
+  result = {}
+  game_hash.each do |key, value|
+    value.each do |inner_key, inner_value|
+      if(inner_key == :players)
+        inner_value.each do |player|
+          if(player[:player_name] == players_name)
+            result = player
+          end 
+        end 
+      end 
+    end
+  end
+  result
+end
+
+def big_shoe_rebounds
+  largest_shoe = -1
+  result = ''
+  game_hash.each do |key, value|
+    value.each do |inner_key, inner_value|
+      if(inner_key == :players)
+        inner_value.each do |player|
+          if(player[:shoe] > largest_shoe)
+            largest_shoe = player[:shoe]
+            result = player[:rebounds]
+          end 
+        end
+      end 
+    end 
+  end 
+  result
+end
+  
