@@ -171,7 +171,11 @@ def team_colors (team_name)
 end
 
 def team_names (team_name)
-   result = []
+ 
+end
+
+def player_numbers(team_name)
+    result = []
     game_hash.each do |location, outer_value|
       result_team = false
       outer_value.each do |team_tier, value|
@@ -186,11 +190,6 @@ def team_names (team_name)
       end 
     end 
   result
-end
-
-def player_numbers(team_name)
-   result = []
-   
 end
 
 def player_stats
