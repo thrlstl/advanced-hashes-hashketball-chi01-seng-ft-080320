@@ -170,7 +170,7 @@ def team_colors (team_name)
   result
 end
 
-def team_names (team_name)
+def team_names
   result =[]
   game_hash.each do |key, value|
     result.push(value[:team_name])
