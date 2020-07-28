@@ -183,7 +183,7 @@ def player_numbers (team_name)
     game_hash.each do |location, outer_value|
       result_team = false
       outer_value.each do |team_tier, value|
-        if(value == team)
+        if(value == team_name)
           result_team = true
         end 
           if(team_tier == :players && result_team == true)
