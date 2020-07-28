@@ -213,20 +213,20 @@ def player_stats (players_name)
 end
 
 def big_shoe_rebounds
-  biggest_shoe = -1
-  player_rebounds =''
+  largest_shoe = -1
+  result = ''
   game_hash.each do |key, value|
     value.each do |inner_key, inner_value|
       if(inner_key == :players)
         inner_value.each do |player|
-          if(player[:shoe] > biggest_shoe)
-            biggest_shoe = player[:shoe]
-            player_rebounds= player[:rebounds]
+          if(player[:shoe] > largest_shoe)
+            largest_shoe = player[:shoe]
+            result = player[:rebounds]
           end 
         end
       end 
     end 
   end 
-  player_rebounds
+  result
 end
   
