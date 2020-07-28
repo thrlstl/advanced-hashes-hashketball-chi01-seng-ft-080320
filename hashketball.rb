@@ -174,7 +174,7 @@ def team_names (team_name)
    result = []
     game_hash.each do |location, outer_value|
       team_tier = false
-      outer_value.each do |team_info, value|
+      outer_value.each do |team_tier, value|
         if(value == team)
           target_team = true
         end 
