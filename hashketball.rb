@@ -197,6 +197,19 @@ def player_numbers (team_name)
 end
 
 def player_stats
+  result = {}
+  game_hash.each do |key, value|
+    value.each do |inner_key, inner_value|
+      if(inner_key == :players)
+        inner_value.each do |player|
+          if(player[:player_name] == name)
+            result = player
+          end 
+        end 
+      end 
+    end
+  end
+  result
 end
 
 def big_shoe_rebounds
