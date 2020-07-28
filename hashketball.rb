@@ -171,9 +171,9 @@ def team_colors (team_name)
 end
 
 def team_names (team_name)
-   jerseys = []
-    game_hash.each do |home_away_key, outer_value|
-      target_team = false
+   result = []
+    game_hash.each do |location, outer_value|
+      team_tier = false
       outer_value.each do |team_info, value|
         if(value == team)
           target_team = true
